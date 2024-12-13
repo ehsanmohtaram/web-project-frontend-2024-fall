@@ -1,1 +1,1 @@
-# web-project-front-2024-fall
+# web-project-frontend-2024-fall
