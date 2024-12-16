@@ -1,4 +1,4 @@
-import './Designer.css';
+import '../App.css';
 
 function Designer() {
     return (
