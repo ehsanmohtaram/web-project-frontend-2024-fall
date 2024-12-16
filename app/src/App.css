@@ -2,7 +2,7 @@ body {
     background-color: rgb(181, 227, 227);
 }
 
-.dayNightButton {
+.dayNightButton{
     float: right;
     border: transparent;
     color: white;
@@ -11,12 +11,12 @@ body {
     margin-left: auto;
 }
 
-.dayNightButton:hover {
+.dayNightButton:hover{
     color: rgb(133, 166, 183);
     background-color: rgb(255, 255, 255);
 }
 
-#homeh1 {
+#homeh1{
     font-family: 'Brush Script MT', cursive;
     color: rgb(50, 80, 16);
     font-size: 100px;
@@ -26,10 +26,14 @@ body {
 
 nav {
     background-color: transparent;
-    display: flex;
 }
 
-nav a {
+nav ul{
+    display: flex;
+    margin: 0% 0%;
+    padding: 0px;
+}
+nav li {
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -40,13 +44,13 @@ nav a {
     text-align: center;
 }
 
-nav a:hover {
+nav li:hover {
     color: rgb(133, 166, 183);
     background-color: rgb(255, 255, 255);
 }
 
 
-article>section {
+article > section{
     background-color: rgba(52, 248, 255, 0.171);
     width: 30%;
     margin: 15px;
@@ -68,7 +72,7 @@ article {
 }
 
 .submit {
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'Brush Script MT';
     font-size: 20px;
     border: transparent;
     background-color: transparent;
@@ -82,9 +86,8 @@ article {
 
 .add_button {
     font-size: 5vh;
-    font-family: 'Brush Script MT', cursive;
-    margin: 10px 4%;
-    width: 20%;
+    font-family: 'Brush Script MT';
+    margin: 10px 0;
     height: 50px;
     border: transparent;
     background-color: transparent;
@@ -111,34 +114,45 @@ button.chosen_answer {
     padding: 15px 0px;
 }
 
-.login_box div {
+.login_box div{
     margin-top: 10px;
-    margin-left: 6%;
+    margin-left: 1%;
+}
+
+.login_label{
+    font-family: 'Courier New', Courier;
 }
 
 .login_box button {
     display: block;
 }
 
+.login_box input {
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.673);
+}
+
 .container {
-    width: 50%;
-    margin: 10% 25% 0% 25%;
+    width: 90%;
+    margin: 10vh 5% 0% 5%;
     max-height: 200px;
     overflow: auto;
+    border-radius: 10px;
+    display: block;
 }
-
+.container::-webkit-scrollbar {
+    width: 0px;
+}
 
 table {
-    font-family: "Lato-Regular";
+    font-family: 'Lato-Regular';
     width: 100%;
     padding: 0;
-    border-collapse: collapse;
     white-space: nowrap;
+    border-collapse: collapse;
 }
 
-th,
-td {
-    /* border: 1px solid black; */
+th,td {
     padding: 9px 15px 9px 5px;
     text-align: left;
 }
@@ -157,7 +171,3 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
     background-color: #e8f0f7;
 }
-
-/* tr.row2 {
-    background-color: #e8f0f7;
-} */

@@ -1,13 +1,13 @@
 import '../App.css';
 import Navbar from './Navbar';
-import Home from '../view/Home';
+import Home from '../View/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Designer from '../view/Designer';
-import Player from '../view/Player';
-import D_question_management from '../view/D_question_management';
-import Seed_management from '../view/Seed_management';
-import Scores from '../view/Scores';
-import P_question_management from '../view/P_question_management';
+import Designer from '../View/Designer';
+import Player from '../View/Player';
+import D_question_management from '../View/D_question_management';
+import Seed_management from '../View/Seed_management';
+import Scores from '../View/Scores';
+import P_question_management from '../View/P_question_management';
 
 function Layout() {
     return (
