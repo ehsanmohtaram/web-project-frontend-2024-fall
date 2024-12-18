@@ -26,14 +26,9 @@ body {
 
 nav {
     background-color: transparent;
-}
-
-nav ul{
     display: flex;
-    margin: 0% 0%;
-    padding: 0px;
 }
-nav li {
+nav a {
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -44,7 +39,7 @@ nav li {
     text-align: center;
 }
 
-nav li:hover {
+nav a:hover {
     color: rgb(133, 166, 183);
     background-color: rgb(255, 255, 255);
 }
