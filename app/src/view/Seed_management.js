@@ -1,4 +1,16 @@
+import React,{useEffect,useState} from 'react';
+
 function Seed_management() {
+    const [questions, setQuestions] = useState([]);
+    
+        useEffect(()=>{
+            fetch("http://localhost:3001/questions")
+                .then(res=>res.json())
+                .then(data=>setQuestions(data))
+                .catch(error => {
+                    console.log(error);
+                })
+        },[questions])
     return (
         <>
             <article class="seeds">
