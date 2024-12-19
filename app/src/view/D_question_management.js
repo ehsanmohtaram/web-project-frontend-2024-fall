@@ -33,7 +33,7 @@ function D_question_management() {
         
     return (
         <>
-            <article class="questions">
+            <article className="questions">
                 <h1>Questions</h1>
                     {questions.map((question) => (
                         <section className='question'>

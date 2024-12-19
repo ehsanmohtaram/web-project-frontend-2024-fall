@@ -28,7 +28,7 @@ function Seed_management() {
     }
     return (
         <>
-            <article class="seeds">
+            <article className="seeds">
                 <h1>Seeds</h1>
                 {seeds.map((seed) => (
                     <section className="seed">

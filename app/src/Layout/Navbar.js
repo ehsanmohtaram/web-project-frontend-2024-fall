@@ -9,7 +9,7 @@ function Navbar() {
         <nav>
             {location.pathname === '/' && (
                 <>
-                    <Link class="chosen_a" to="/">Home</Link>
+                    <Link className="chosen_a" to="/">Home</Link>
                     <Link to="/designer">Designer</Link>
                     <Link to="/player">Player</Link>
                 </>
@@ -17,7 +17,7 @@ function Navbar() {
             {location.pathname === '/designer' && (
                 <>
                 <Link to="/">Home</Link>
-                <Link class="chosen_a" to="/designer">Designer</Link>
+                <Link className="chosen_a" to="/designer">Designer</Link>
                 <Link to="/designer/question_management">Question Management Page</Link>
                 <Link to="/designer/seed_management">Seed Management Page</Link>
             </>
@@ -26,7 +26,7 @@ function Navbar() {
                 <>
                 <Link to="/">Home</Link>
                 <Link to="/designer">Designer</Link>
-                <Link class="chosen_a" to="/designer/question_management">Question Management Page</Link>
+                <Link className="chosen_a" to="/designer/question_management">Question Management Page</Link>
                 <Link to="/designer/seed_management">Seed Management Page</Link>
             </>
             )}
@@ -35,13 +35,13 @@ function Navbar() {
                 <Link to="/">Home</Link>
                 <Link to="/designer">Designer</Link>
                 <Link to="/designer/question_management">Question Management Page</Link>
-                <Link class="chosen_a" to="/designer/seed_management">Seed Management Page</Link>
+                <Link className="chosen_a" to="/designer/seed_management">Seed Management Page</Link>
             </>
             )}
             {location.pathname === '/player' && (
                 <>
                 <Link to="/">Home</Link>
-                <Link class="chosen_a" to="/player">Player</Link>
+                <Link className="chosen_a" to="/player">Player</Link>
                 <Link to="/player/scores">Scores Page</Link>
                 <Link to="/player/question_management">Question Management Page</Link>
             </>
@@ -50,7 +50,7 @@ function Navbar() {
                 <>
                 <Link to="/">Home</Link>
                 <Link to="/player">Player</Link>
-                <Link class="chosen_a" to="/player/scores">Scores Page</Link>
+                <Link className="chosen_a" to="/player/scores">Scores Page</Link>
                 <Link to="/player/question_management">Question Management Page</Link>
             </>
             )}
@@ -59,7 +59,7 @@ function Navbar() {
                 <Link to="/">Home</Link>
                 <Link to="/player">Player</Link>
                 <Link to="/player/scores">Scores Page</Link>
-                <Link class="chosen_a" to="/player/question_management">Question Management Page</Link>
+                <Link className="chosen_a" to="/player/question_management">Question Management Page</Link>
             </>
             )}
             {/* <button id="colorButton" class="dayNightButton">

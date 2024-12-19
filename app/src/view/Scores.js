@@ -13,7 +13,7 @@ function Scores() {
     },[scores])
 
     return (
-        <div class="container">
+        <div className="container">
             <table>
                 <tr>
                     <th>Name</th>
