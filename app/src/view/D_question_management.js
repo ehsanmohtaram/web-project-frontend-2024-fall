@@ -47,7 +47,7 @@ function D_question_management() {
                         </section>
                     ))}
             </article>
-            <form onSubmit={addQuestion}>
+            <form className="inputBox"onSubmit={addQuestion}>
                 <input
                     type="text"
                     name="ask"
@@ -90,7 +90,7 @@ function D_question_management() {
                     placeholder="seed"
                     required
                 />
-                <button type="submit">Add New Question</button>
+                <button class = "submitQuestion" type="submit">Add New Question</button>
             </form>
         </>
     );

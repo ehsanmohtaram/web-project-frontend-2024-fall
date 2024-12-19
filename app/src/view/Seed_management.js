@@ -43,14 +43,14 @@ function Seed_management() {
                     </section>
                 ))}
             </article>
-            <form onSubmit={addSeeds}>
+            <form className="inputBox"onSubmit={addSeeds}>
                 <input
                     type="text"
                     name="name"
                     placeholder="seed name"
                     required
                 />
-                <button type="submit">Add New Seed</button>
+                <button class="submitQuestion"type="submit">Add New Seed</button>
             </form>
         </>
     );

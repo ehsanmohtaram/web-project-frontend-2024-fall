@@ -55,7 +55,7 @@ article > section{
 
 article {
     font-family: 'Courier New', Monospace;
-    background-color: rgba(22, 68, 143, 0.188);
+    background-color: rgba(143, 125, 22, 0.188);
     width: 100%;
     padding: 20px;
     margin: 10px 4%;
@@ -75,6 +75,20 @@ article {
 }
 
 .submit:hover {
+    border: transparent;
+    color: rgb(133, 166, 183);
+}
+
+.submitQuestion {
+    font-family: 'Brush Script MT';
+    font-size: 40px;
+    border: transparent;
+    background-color: transparent;
+    color: rgb(114, 191, 187);
+    display: block;
+}
+
+.submitQuestion:hover {
     border: transparent;
     color: rgb(133, 166, 183);
 }
@@ -125,6 +139,12 @@ button.chosen_answer {
 .login_box input {
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.673);
+}
+
+.inputBox input {
+    margin-left: 10px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.342);
 }
 
 .container {
