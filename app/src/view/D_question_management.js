@@ -15,9 +15,10 @@ function D_question_management() {
     const addQuestion = (e) => {
         e.preventDefault();
         const form = e.target; 
+        
         const newQuestion = {
             "ask" : form.ask.value,
-            "choices" : form.choices.value,
+            "choices" : [form.choice1.value,form.choice2.value,form.choice3.value,form.choice4.value],
             "answer" : form.answer.value,
             "seed" : form.seed.value
         }
@@ -30,9 +31,6 @@ function D_question_management() {
         })
     }
         
-
-
-
     return (
         <>
             <article class="questions">
@@ -40,28 +38,14 @@ function D_question_management() {
                     {questions.map((question) => (
                         <section className='question'>
                             <h4>{question.ask}</h4>
-                            <section>
-                                <input id="q_1_1" name="question_1" type="radio"/>
-                                <label for="q_1_1">{question.choices[0]}</label>
-                            </section>
-                            <section>
-                                <input id="q_1_2" name="question_1" type="radio"/>
-                                <label for="q_1_2">{question.choices[1]}</label>
-                            </section>
-                            <section>
-                                <input id="q_1_3" name="question_1" type="radio"/>
-                                <label for="q_1_3">{question.choices[2]}</label>
-                            </section>
-                            <section>
-                                <input id="q_1_4" name="question_1" type="radio"/>
-                                <label for="q_1_4">{question.choices[3]}</label>
-                            </section>
-                            <button class="submit">Submit Answer</button>
+                            <ul>
+                                <li>{question.choices[0]}</li>
+                                <li>{question.choices[1]}</li>
+                                <li>{question.choices[2]}</li>
+                                <li>{question.choices[3]}</li>
+                            </ul>
                         </section>
                     ))}
-                {/* <section class="question">
-                    
-                    </section>*/}
             </article>
             <form onSubmit={addQuestion}>
                 <input
@@ -72,8 +56,26 @@ function D_question_management() {
                 />
                 <input
                     type="text"
-                    name="choices"
-                    placeholder="choices"
+                    name="choice1"
+                    placeholder="choice1"
+                    required
+                />
+                <input
+                    type="text"
+                    name="choice2"
+                    placeholder="choice2"
+                    required
+                />
+                <input
+                    type="text"
+                    name="choice3"
+                    placeholder="choice3"
+                    required
+                />
+                <input
+                    type="text"
+                    name="choice4"
+                    placeholder="choice4"
                     required
                 />
                 <input

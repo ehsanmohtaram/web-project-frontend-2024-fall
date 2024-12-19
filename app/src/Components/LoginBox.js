@@ -5,7 +5,6 @@ import React, { useState } from "react";
 function LoginBox() {
     const [username, setUsername] = useState("")
     const [password, serPassword] = useState("")
-    let respons = ""
 
     const handleInputChangeU = (event) => {
         setUsername(event.target.value);
@@ -14,27 +13,7 @@ function LoginBox() {
         serPassword(event.target.value)
     };
 
-    const singIn = () => {
-        const newUser = {
-            "username" : username,
-            "password" : password
-        }
-        fetch("http://localhost:3001/addUser", {
-            "method" : "POST",
-            body : JSON.stringify(newUser),
-            headers : {
-                "content-type" : "application/json"
-            }
-        })
-            .then(res=>res.json())
-            .then(data=>respons = data)
-            .catch(error => {
-                console.log(error);
-            })
-        alert(respons)
-    }
-
-    const singUp = () => {
+    const signIn = () => {
         const newUser = {
             "username" : username,
             "password" : password
@@ -47,11 +26,29 @@ function LoginBox() {
             }
         })
             .then(res=>res.json())
-            .then(data=>respons = data)
+            .then(data=>alert(data))
             .catch(error => {
                 console.log(error);
             })
-        alert(respons)
+    }
+
+    const signUp = () => {
+        const newUser = {
+            "username" : username,
+            "password" : password
+        }
+        fetch("http://localhost:3001/addUser", {
+            "method" : "POST",
+            body : JSON.stringify(newUser),
+            headers : {
+                "content-type" : "application/json"
+            }
+        })
+        .then(res=>res.json())
+        .then(data=>alert(data))
+        .catch(error => {
+            console.log(error);
+        })
     }
 
 
@@ -66,8 +63,8 @@ function LoginBox() {
                 <label className="login_label" for="password">Password </label>
                 <input type="text" value={password} onChange={handleInputChangeP} defaultValue="" placeholder="password" />
             </div>
-            <button className="add_button" onClick={singIn}>Sign In</button>
-            <button class="add_button" onClick={singUp}>Sign Up</button>
+            <button className="add_button" onClick={signIn}>Sign In</button>
+            <button class="add_button" onClick={signUp}>Sign Up</button>
         </section>
     );
 }

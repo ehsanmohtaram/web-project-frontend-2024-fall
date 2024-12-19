@@ -11,10 +11,12 @@ function Seed_management() {
                 console.log(error);
             })
     },[seeds])
-    const addSeeds = () => {
+    const addSeeds = (e) => {
+        e.preventDefault();
+        const form = e.target; 
+
         const newSeed = {
-            "name" : "infinite jest",
-            "questions" : ["motiee"]
+            "name" : form.name.value,
         }
         fetch("http://localhost:3001/seed", {
             "method" : "POST",
@@ -28,28 +30,28 @@ function Seed_management() {
         <>
             <article class="seeds">
                 <h1>Seeds</h1>
-                <section>
-                    {seeds.map((seed) => (
-                        <div>
-                            <h4>{seed.name}</h4>
-                            <p>{seed.questions}</p>
-                        </div>
-                    ))}
-                </section>
-                {/* <section class="seed">
-                    <h4>literature</h4>
-                    <ul>
-                        <li><a href="#q1">hello question</a></li>
-                    </ul>
-                </section>
-                <section class="seed">
-                    <h4>Geography</h4>
-                    <ul>
-                        <li><a href="#q2">capital of Iran</a></li>
-                    </ul>
-                </section> */}
+                {seeds.map((seed) => (
+                    <section className="seed">
+                        <h4>{seed.name}</h4>
+                        <ul>
+                        {
+                            seed.questions.map((q) => (
+                                <li>{q}</li>
+                            ))
+                        }
+                        </ul>
+                    </section>
+                ))}
             </article>
-            <button class="add_button" onClick={addSeeds}>Add New Seed</button>
+            <form onSubmit={addSeeds}>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="seed name"
+                    required
+                />
+                <button type="submit">Add New Seed</button>
+            </form>
         </>
     );
   }

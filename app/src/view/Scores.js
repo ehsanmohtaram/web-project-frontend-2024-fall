@@ -1,49 +1,34 @@
+import React,{useEffect,useState} from 'react';
+
 function Scores() {
+    const [scores, setScores] = useState([]);
+
+    useEffect(()=>{
+        fetch("http://localhost:3001/scores")
+            .then(res=>res.json())
+            .then(data=>setScores(data))
+            .catch(error => {
+                console.log(error);
+            })
+    },[scores])
+
     return (
         <div class="container">
             <table>
                 <tr>
                     <th>Name</th>
-                    <th>All question</th>
                     <th>Answered question</th>
-                    <th>Question designer</th>
+                    <th>Correct answers</th>
                     <th>Score</th>
                 </tr>
-                <tr>
-                    <td>ali</td>
-                    <td>20</td>
-                    <td>12</td>
-                    <td> mamad</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>hosain</td>
-                    <td>25</td>
-                    <td>10</td>
-                    <td> mamad</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>ehsan</td>
-                    <td>25</td>
-                    <td>10</td>
-                    <td>ali</td>
-                    <td>75</td>
-                </tr>
-                <tr>
-                    <td>danial</td>
-                    <td>55</td>
-                    <td>10</td>
-                    <td>ali</td>
-                    <td>8</td>
-                </tr>
-                <tr>
-                    <td>reza</td>
-                    <td>205</td>
-                    <td>100</td>
-                    <td>ali</td>
-                    <td>75</td>
-                </tr>
+                {scores.map((row) => (
+                    <tr>
+                        <td>{row.name}</td>
+                        <td>{row.answeredQuestions}</td>
+                        <td>{row.correctAnswers}</td>
+                        <td>{row.score}</td>
+                    </tr>
+                ))}
             </table>
         </div>
     );

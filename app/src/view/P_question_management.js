@@ -2,9 +2,10 @@ import React,{useEffect,useState} from 'react';
 
 function P_question_management() {
     const [questions, setQuestions] = useState([]);
+    const [selectedAnswers, setSelectedAnswers] = useState({});
 
     useEffect(()=>{
-        fetch("http://localhost:3001/questions")
+        fetch("http://localhost:3001/notAnswered")
             .then(res=>res.json())
             .then(data=>setQuestions(data))
             .catch(error => {
@@ -12,47 +13,55 @@ function P_question_management() {
             })
     },[questions])
 
-    const answerQuestion = () => {
-        //اضافه کردن فیلد بخش‌های مختلف طرح سوال
-        //TODO
-        const newQuestion = {
-            "ask" : "how many people are dead?",
-            "choices" : ["100", "200", "300", "400"],
-            "answer" : "100",
-            "seed" : "population"
+    const answerQuestion = (qId) => {
+        console.log(qId);
+        const newAnswer = {
+            "questionId" : qId,
+            "answer" : selectedAnswers[qId],
         }
-        fetch("http://localhost:3001/question", {
+        fetch("http://localhost:3001/answer", {
             "method" : "POST",
-            body : JSON.stringify(newQuestion),
+            body : JSON.stringify(newAnswer),
             headers : {
                 "content-type" : "application/json"
             }
         })
     }
+
+    const handleSelection = (questionId, choice) => {
+        setSelectedAnswers(prevAnswers => ({
+            ...prevAnswers,
+            [questionId]: choice
+            }));
+    }
+
     return (
         <>
             <article class="questions">
-                <h1>Answered Questions</h1>
-                {/* <section class="question">
-                    <h4>How many letters are there in "hello"?</h4>
-                    <ul>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li class="chosen_answer">5</li>
-                    </ul>
-                </section>
-                <section class="question">
-                    <h4>Where is the capital of Iran?</h4>
-                    <ul>
-                        <li class="chosen_answer">Tehran</li>
-                        <li>Mashhad</li>
-                        <li>Esfehan</li>
-                        <li>Yazd</li>
-                    </ul>
-                </section> */}
+                <h1>Not Answered Questions</h1>
+                {questions.map((question) => (
+                        <section class="question">
+                            <h4>How many letters are there in "hello"?</h4>
+                            <section>
+                                <input id="q_1_1" name="question_1" type="radio" onChange={() => handleSelection(question.id,1)}/>
+                                <label for="q_1_1">{question.choices[0]}</label>
+                            </section>
+                            <section>
+                                <input id="q_1_2" name="question_1" type="radio" onChange={() => handleSelection(question.id,2)}/>
+                                <label for="q_1_2">{question.choices[1]}</label>
+                            </section>
+                            <section>
+                                <input id="q_1_3" name="question_1" type="radio" onChange={() => handleSelection(question.id,3)}/>
+                                <label for="q_1_3">{question.choices[2]}</label>
+                            </section>
+                            <section>
+                                <input id="q_1_4" name="question_1" type="radio" onChange={() => handleSelection(question.id,4)}/>
+                                <label for="q_1_4">{question.choices[3]}</label>
+                            </section>
+                            <button class="submit" onClick={answerQuestion(question.id)}>Submit Answer</button>
+                        </section>
+                    ))}
             </article>
-            <button class="add_button" onClick={answerQuestion}>Answer New Question</button>
         </>
     );
   }
