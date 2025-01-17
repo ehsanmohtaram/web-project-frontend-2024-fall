@@ -20,7 +20,9 @@ function D_question_management() {
             "ask" : form.ask.value,
             "choices" : [form.choice1.value,form.choice2.value,form.choice3.value,form.choice4.value],
             "answer" : form.answer.value,
-            "seed" : form.seed.value
+            "seedDTO" : {
+                "name" : form.seed.value
+            }
         }
         fetch("http://localhost:3001/question", {
             "method" : "POST",
