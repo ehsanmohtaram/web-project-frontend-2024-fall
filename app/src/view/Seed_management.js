@@ -10,7 +10,7 @@ function Seed_management() {
             .catch(error => {
                 console.log(error);
             })
-    },[seeds])
+    },[])
     const addSeeds = (e) => {
         e.preventDefault();
         const form = e.target; 

@@ -10,7 +10,7 @@ function D_question_management() {
             .catch(error => {
                 console.log(error);
             })
-    },[questions])
+    },[])
 
     const addQuestion = (e) => {
         e.preventDefault();

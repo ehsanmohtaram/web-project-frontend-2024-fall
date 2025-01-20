@@ -11,13 +11,12 @@ function P_question_management() {
             .catch(error => {
                 console.log(error);
             })
-    },[myQuestions])
+    },[])
 
     const answerQuestion = (qId) => {
-        console.log("qid" , qId, selectedAnswers[qId]);
         const newAnswer = {
             "questionId" : qId,
-            "answer" : selectedAnswers[qId],
+            "chosenChoice" : selectedAnswers[qId],
         }
         fetch("http://localhost:3001/answer", {
             "method" : "POST",
@@ -26,6 +25,12 @@ function P_question_management() {
                 "content-type" : "application/json"
             }
         })
+        fetch("http://localhost:3001/notAnswered")
+            .then(res=>res.json())
+            .then(data=>setMyQuestions(data))
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     const handleSelection = (questionId, choice) => {
@@ -41,22 +46,22 @@ function P_question_management() {
                 <h1>Not Answered Questions</h1>
                 {myQuestions.map((question) => (
                         <section className="question">
-                            <h4>How many letters are there in "hello"?</h4>
+                            <h4>{question.ask}</h4>
                             <section>
-                                <input id="q_1_1" name="question_1" type="radio" onChange={() => handleSelection(question.id,1)}/>
-                                <label htmlFor="q_1_1">{question.choices[0]}</label>
+                                <input id={`q_${question.id}_1`} name={`question_${question.id}`} type="radio" onChange={() => handleSelection(question.id,1)}/>
+                                <label htmlFor={`q_${question.id}_1`}>{question.choices[0]}</label>
                             </section>
                             <section>
-                                <input id="q_1_2" name="question_1" type="radio" onChange={() => handleSelection(question.id,2)}/>
-                                <label htmlFor="q_1_2">{question.choices[1]}</label>
+                                <input id={`q_${question.id}_2`} name={`question_${question.id}`} type="radio" onChange={() => handleSelection(question.id,2)}/>
+                                <label htmlFor={`q_${question.id}_2`}>{question.choices[1]}</label>
                             </section>
                             <section>
-                                <input id="q_1_3" name="question_1" type="radio" onChange={() => handleSelection(question.id,3)}/>
-                                <label htmlFor="q_1_3">{question.choices[2]}</label>
+                                <input id={`q_${question.id}_3`} name={`question_${question.id}`} type="radio" onChange={() => handleSelection(question.id,3)}/>
+                                <label htmlFor={`q_${question.id}_3`}>{question.choices[2]}</label>
                             </section>
                             <section>
-                                <input id="q_1_4" name="question_1" type="radio" onChange={() => handleSelection(question.id,4)}/>
-                                <label htmlFor="q_1_4">{question.choices[3]}</label>
+                                <input id={`q_${question.id}_4`} name={`question_${question.id}`} type="radio" onChange={() => handleSelection(question.id,4)}/>
+                                <label htmlFor={`q_${question.id}_4`}>{question.choices[3]}</label>
                             </section>
                             <button className="submit" onClick={() => answerQuestion(question.id)} >Submit Answer</button>
                         </section>

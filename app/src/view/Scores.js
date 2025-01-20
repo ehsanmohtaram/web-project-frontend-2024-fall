@@ -10,7 +10,7 @@ function Scores() {
             .catch(error => {
                 console.log(error);
             })
-    },[scores])
+    },[])
 
     return (
         <div className="container">
@@ -23,8 +23,8 @@ function Scores() {
                 </tr>
                 {scores.map((row) => (
                     <tr>
-                        <td>{row.name}</td>
-                        <td>{row.answeredQuestions}</td>
+                        <td>{row.username}</td>
+                        <td>{row.totalAnswers}</td>
                         <td>{row.correctAnswers}</td>
                         <td>{row.score}</td>
                     </tr>
