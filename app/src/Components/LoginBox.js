@@ -2,7 +2,7 @@ import '../App.css';
 import React, { useState } from "react";
 
 
-function LoginBox() {
+function LoginBox({role}) {
     const [username, setUsername] = useState("")
     const [password, serPassword] = useState("")
 
@@ -16,7 +16,8 @@ function LoginBox() {
     const signIn = () => {
         const newUser = {
             "username" : username,
-            "password" : password
+            "password" : password,
+            "role" : role,
         }
         fetch("http://localhost:3001/user", {
             "method" : "POST",
@@ -36,7 +37,8 @@ function LoginBox() {
     const signUp = () => {
         const newUser = {
             "username" : username,
-            "password" : password
+            "password" : password,
+            "role" : role,
         }
         fetch("http://localhost:3001/addUser", {
             "method" : "POST",

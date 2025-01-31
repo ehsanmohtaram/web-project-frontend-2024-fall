@@ -2,7 +2,7 @@ import LoginBox from "../Components/LoginBox"
 
 function Player() {
     return (
-        <LoginBox/>
+        <LoginBox role = "player"/>
     );
   }
   

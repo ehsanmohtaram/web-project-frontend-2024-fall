@@ -4,7 +4,7 @@ import LoginBox from "../Components/LoginBox"
 
 function Designer() {
     return (
-        <LoginBox/>
+        <LoginBox role = "designer"/>
     );
   }
   

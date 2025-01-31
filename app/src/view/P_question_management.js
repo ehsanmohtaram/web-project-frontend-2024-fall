@@ -33,6 +33,7 @@ function P_question_management() {
             })
     }
 
+
     const handleSelection = (questionId, choice) => {
         setSelectedAnswers(prevAnswers => ({
             ...prevAnswers,
