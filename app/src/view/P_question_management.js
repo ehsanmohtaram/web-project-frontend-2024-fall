@@ -33,6 +33,15 @@ function P_question_management() {
             })
     }
 
+    const followDesigner = (qId) => {
+        fetch(`http://localhost:3001/followDesigner/${qId}`, {
+            "method" : "POST",
+            headers : {
+                "content-type" : "application/json"
+            }
+        })
+    }
+
 
     const handleSelection = (questionId, choice) => {
         setSelectedAnswers(prevAnswers => ({
@@ -65,6 +74,7 @@ function P_question_management() {
                                 <label htmlFor={`q_${question.id}_4`}>{question.choices[3]}</label>
                             </section>
                             <button className="submit" onClick={() => answerQuestion(question.id)} >Submit Answer</button>
+                            <button className="submit" onClick={() => followDesigner(question.id)} >Follow Designer</button>
                         </section>
                     ))}
             </article>
