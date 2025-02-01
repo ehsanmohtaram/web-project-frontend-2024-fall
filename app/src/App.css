@@ -72,6 +72,7 @@ article {
     border: transparent;
     background-color: transparent;
     color: white;
+    margin-right: 10px;
 }
 
 .submit:hover {
@@ -141,7 +142,7 @@ button.chosen_answer {
     background-color: rgba(255, 255, 255, 0.673);
 }
 
-.inputBox input {
+.inputBox input, .seed_input {
     margin-left: 10px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.342);

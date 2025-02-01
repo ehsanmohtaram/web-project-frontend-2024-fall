@@ -90,13 +90,14 @@ function P_question_management() {
                 <h1>Not Answered Questions</h1>
                 <button className="submit" onClick={() => filter(1)}>Not Answered</button>
                 <button className="submit" onClick={() => filter(2)}>Followed</button>
+                <button className="submit" onClick={() => filter(3, seed)}>By Seed</button>
                 <input
+                    className='seed_input'
                     type="text"
                     value={seed}
                     onChange={(e) => setSeed(e.target.value)}
                     placeholder="Enter seed"
                 />
-                <button className="submit" onClick={() => filter(3, seed)}>By Seed</button>
                 {myQuestions.map((question) => (
                     <section className="question">
                         <h4>{question.ask}</h4>
